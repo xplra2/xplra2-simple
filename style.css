@@ -211,3 +211,14 @@
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.29);
   border: solid 1px #326c3b;
   background-color: #ffffff; }
+
+/* .card-wrapper{
+  vertical-align: bottom;
+} */
+
+.align-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
