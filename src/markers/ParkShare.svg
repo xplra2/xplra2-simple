@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.205" height="84.314" viewBox="0 0 46.205 84.314">
+    <defs>
+        <style>
+            .cls-1,.cls-2,.cls-4{fill:#20389b}.cls-2{stroke:#20389b;stroke-width:5px}.cls-3{fill:#fff}.cls-4{font-size:24px;font-family:Arial-Black,Arial #000;font-weight:800}.cls-5{stroke:none}.cls-6{fill:none}
+        </style>
+    </defs>
+    <g id="ParkShare" transform="translate(-69.845 -468.365)">
+        <g id="ParkingAttendent" transform="translate(-150 -60)">
+            <g id="StreetParkingPin" transform="translate(-70 250)">
+                <g id="empty_pin" data-name="empty pin" transform="translate(163.845 169.365)">
+                    <path id="Path_10" d="M3.533 1.576a2.077 2.077 0 0 1 4.031 0l4.387 37.041c.325 1.31 1.35 2.836 0 2.836H1.784c-1.35 0-2.029-1.526-1.7-2.836z" class="cls-1" data-name="Path 10" transform="rotate(180 77.326 96.657)"/>
+                    <g id="Ellipse_4" class="cls-2" data-name="Ellipse 4" transform="translate(126 109)">
+                        <circle cx="23.103" cy="23.103" r="23.103" class="cls-5"/>
+                        <circle cx="23.103" cy="23.103" r="20.603" class="cls-6"/>
+                    </g>
+                    <path id="Path_11" d="M20.766 0A20.766 20.766 0 1 1 0 20.766 20.766 20.766 0 0 1 20.766 0z" class="cls-3" data-name="Path 11" transform="translate(128.307 111.307)"/>
+                </g>
+            </g>
+        </g>
+        <g id="ParkShare-2" data-name="ParkShare" transform="translate(-79.989 330.938)">
+            <text id="PS" class="cls-4" transform="translate(155.705 169.113)">
+                <tspan x="0" y="0">PS</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

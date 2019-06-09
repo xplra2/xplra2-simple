@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.205" height="84.314" viewBox="0 0 46.205 84.314">
+    <defs>
+        <style>
+            .cls-1,.cls-4,.cls-7{fill:#962828}.cls-2{fill:#9b0808}.cls-3,.cls-5{fill:#fff}.cls-4{stroke:#962828}.cls-5{font-size:11px;font-family:Arial-Black,Arial #000;font-weight:800}.cls-6,.cls-7{stroke:none}.cls-8{fill:none}
+        </style>
+    </defs>
+    <g id="StreetParkingPin" transform="translate(-289.845 -278.365)">
+        <g id="empty_pin" data-name="empty pin" transform="translate(163.845 169.365)">
+            <path id="Path_10" d="M3.533 1.576a2.077 2.077 0 0 1 4.031 0l4.387 37.041c.325 1.31 1.35 2.836 0 2.836H1.784c-1.35 0-2.029-1.526-1.7-2.836z" class="cls-1" data-name="Path 10" transform="rotate(180 77.326 96.657)"/>
+            <g id="Path_12" class="cls-2" data-name="Path 12">
+                <path d="M23.103 43.705a20.537 20.537 0 0 1-14.568-6.034A20.537 20.537 0 0 1 2.5 23.103 20.537 20.537 0 0 1 8.534 8.535 20.537 20.537 0 0 1 23.103 2.5 20.537 20.537 0 0 1 37.67 8.534a20.537 20.537 0 0 1 6.034 14.569 20.537 20.537 0 0 1-6.034 14.568 20.537 20.537 0 0 1-14.568 6.034z" class="cls-6" transform="translate(126 109)"/>
+                <path d="M23.103 5a17.984 17.984 0 0 0-12.8 5.302A17.984 17.984 0 0 0 5 23.102c0 4.836 1.883 9.382 5.302 12.8a17.984 17.984 0 0 0 12.8 5.303c4.836 0 9.382-1.883 12.8-5.302a17.984 17.984 0 0 0 5.303-12.8c0-4.836-1.883-9.382-5.302-12.8A17.984 17.984 0 0 0 23.103 5m0-5c12.759 0 23.102 10.343 23.102 23.103 0 12.759-10.343 23.102-23.102 23.102C10.343 46.205 0 35.862 0 23.103 0 10.343 10.343 0 23.103 0z" class="cls-7" transform="translate(126 109)"/>
+            </g>
+            <path id="Path_11" d="M20.766 0A20.766 20.766 0 1 1 0 20.766 20.766 20.766 0 0 1 20.766 0z" class="cls-3" data-name="Path 11" transform="translate(128.307 111.307)"/>
+        </g>
+        <g id="Street_Parking" data-name="Street Parking" transform="translate(58.044 168.389)">
+            <g id="Group_4" data-name="Group 4" transform="translate(246 115)">
+                <g id="Sign" transform="translate(0 .591)">
+                    <g id="Rectangle_3" class="cls-4" data-name="Rectangle 3">
+                        <rect width="18.329" height="17.606" class="cls-6" rx="8.803"/>
+                        <rect width="17.329" height="16.606" x=".5" y=".5" class="cls-8" rx="8.303"/>
+                    </g>
+                </g>
+                <text id="P" class="cls-5" transform="translate(5.438 14)">
+                    <tspan x="0" y="0">P</tspan>
+                </text>
+            </g>
+            <path id="Rectangle_6" d="M0 0h3.508v15.869a1.754 1.754 0 0 1-1.754 1.754A1.754 1.754 0 0 1 0 15.869V0z" class="cls-1" data-name="Rectangle 6" transform="translate(252.862 131.509)"/>
+        </g>
+    </g>
+</svg>

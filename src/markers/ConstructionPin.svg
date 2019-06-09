@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.205" height="84.314" viewBox="0 0 46.205 84.314">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:#d97f04}.cls-2{stroke:#d97f04;stroke-width:5px}.cls-3{fill:#fff}.cls-4{stroke:none}.cls-5{fill:none}
+        </style>
+    </defs>
+    <g id="ConstructionPin" transform="translate(-129.845 -638.365)">
+        <g id="ParkingAttendent" transform="translate(-90 110)">
+            <g id="StreetParkingPin" transform="translate(-70 250)">
+                <g id="empty_pin" data-name="empty pin" transform="translate(163.845 169.365)">
+                    <path id="Path_10" d="M3.533 1.576a2.077 2.077 0 0 1 4.031 0l4.387 37.041c.325 1.31 1.35 2.836 0 2.836H1.784c-1.35 0-2.029-1.526-1.7-2.836z" class="cls-1" data-name="Path 10" transform="rotate(180 77.326 96.657)"/>
+                    <g id="Ellipse_4" class="cls-2" data-name="Ellipse 4" transform="translate(126 109)">
+                        <circle cx="23.103" cy="23.103" r="23.103" class="cls-4"/>
+                        <circle cx="23.103" cy="23.103" r="20.603" class="cls-5"/>
+                    </g>
+                    <path id="Path_11" d="M20.766 0A20.766 20.766 0 1 1 0 20.766 20.766 20.766 0 0 1 20.766 0z" class="cls-3" data-name="Path 11" transform="translate(128.307 111.307)"/>
+                </g>
+            </g>
+        </g>
+        <g id="Construction" transform="translate(76.143 573.724)">
+            <path id="Polygon_1" d="M15.751 6.006a4 4 0 0 1 6.929 0l12.291 21.3a4 4 0 0 1-3.465 6H6.926a4 4 0 0 1-3.465-6z" class="cls-1" data-name="Polygon 1" transform="translate(58 67)"/>
+            <circle id="Ellipse_2" cx="2.725" cy="2.725" r="2.725" class="cls-3" data-name="Ellipse 2" transform="translate(74.991 78.893)"/>
+            <path id="Path_1" d="M1538.426 197.043l2.464-3.051 5.287 2.123v2.655l6.342 3.459 1.09-2.374 4.54 4.522h-8.661l.862-1.246h1.785z" class="cls-3" data-name="Path 1" transform="translate(-1467.558 -110.651)"/>
+            <path id="Path_2" d="M1509.6 234.9l3.192-6.475 7.062 2.955-.288 4.354h-2.134v-2.9l-4.116-1.452-2.088 4.129z" class="cls-3" data-name="Path 2" transform="translate(-1442.349 -140.849)"/>
+        </g>
+    </g>
+</svg>

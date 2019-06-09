@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  
+  <body>
+    <div class="wrapper">
+        <div id="map"></div>
+        <div class="content">
+          <div class="card">
+            <div class="card-content">
+              hello
+            </div>
+          </div>
+        </div>
+    </div>
+
+<style>
+.wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#map{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  position: absolute;
+  padding: 100px;
+}
+
+</style>
+    <script>
+      var map;
+
+      function createPin(latLong, myMap, title, pinType){
+        var marker = new google.maps.Marker({
+          position: latLong,
+          map: myMap,
+          title: title,
+          icon: pinType
+        });
+      }
+      
+      var myLatLng = {lat: 42.2808, lng: -83.7430};
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 42.2808, lng: -83.7430},
+          zoom: 14
+        });
+
+        createPin(myLatLng, map, "fjkladsfdjal", './src/markers/GaragePin.svg');
+      }
+    </script>
+    <script src='vueScript.js'></script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt08QRtM9SQlwlstivjJGpw6lGX1C8LIY&callback=initMap"></script>
+
+  </body>
+</html>
