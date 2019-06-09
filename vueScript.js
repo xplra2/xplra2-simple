@@ -313,6 +313,7 @@ let globalActions = new Vue({
         })
       }.bind(this), 100);
       
+      
     },
 
     submitStreet: function(){
