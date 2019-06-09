@@ -45,7 +45,7 @@ $confirm-blue: #00a39d;
 .light-grey {
     color: $light-grey;
 }
-.confrirm-blue {
+.confirm-blue {
     color: $confirm-blue;
 }
 
@@ -261,6 +261,13 @@ $size4: 32px;
     border-radius: 22px;
     box-shadow: 0 3px 6px 0 #4e3b21;
     border: solid 3px $medium-grey;
+    background-color: $white;
+}
+
+.sign-up-confirm-border {
+    border-radius: 22px;
+    box-shadow: 0 3px 6px 0 #4e3b21;
+    border: solid 3px $confirm-blue;
     background-color: $white;
 }
 

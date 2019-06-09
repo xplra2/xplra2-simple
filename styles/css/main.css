@@ -25,7 +25,7 @@
 .light-grey {
   color: #b1b1b1; }
 
-.confrirm-blue {
+.confirm-blue {
   color: #00a39d; }
 
 .fs-sm {
@@ -201,6 +201,12 @@
   border-radius: 22px;
   box-shadow: 0 3px 6px 0 #4e3b21;
   border: solid 3px #6a6a6a;
+  background-color: #ffffff; }
+
+.sign-up-confirm-border {
+  border-radius: 22px;
+  box-shadow: 0 3px 6px 0 #4e3b21;
+  border: solid 3px #00a39d;
   background-color: #ffffff; }
 
 .sign-up-button {
