@@ -271,6 +271,19 @@ $size4: 32px;
     background-color: $white;
 }
 
+.add-expanded-border {
+    border-radius: 11px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+    background-color: $white;
+}
+
+.add-expanded-size {
+    max-width: 30%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 .sign-up-button {
     border-radius: 19px;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
@@ -292,11 +305,6 @@ $size4: 32px;
 .full-width {
     width:  100%;
 }
-
-.card-header {
-    display: -webkit-box!important;
-}
-
 
 .switch {
     position: relative;
