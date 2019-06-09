@@ -1,0 +1,172 @@
+.garage {
+    color: #90309d; }
+  
+  .white {
+    color: #ffffff; }
+  
+  .pine-green {
+    color: #326c3b; }
+  
+  .construction {
+    color: #d97f04; }
+  
+  .parkshare {
+    color: #20389b; }
+  
+  .dark-red {
+    color: #962828; }
+  
+  .medium-grey {
+    color: #6a6a6a; }
+  
+  .black {
+    color: #333333; }
+  
+  .light-grey {
+    color: #b1b1b1; }
+  
+  .confrirm-blue {
+    color: #00a39d; }
+  
+  .fs-sm {
+    font-size: 18px !important; }
+  
+  .fs-med {
+    font-size: 21px !important; }
+  
+  .fs-lg {
+    font-size: 24px !important; }
+  
+  .fs-underline {
+    text-decoration: underline; }
+  
+  .pt0 {
+    padding-top: 0px !important; }
+  
+  .pb0 {
+    padding-bottom: 0px !important; }
+  
+  .pr0 {
+    padding-right: 0px !important; }
+  
+  .pl0 {
+    padding-left: 0px !important; }
+  
+  .pt1 {
+    padding-top: 8px !important; }
+  
+  .pb1 {
+    padding-bottom: 8px !important; }
+  
+  .pr1 {
+    padding-right: 8px !important; }
+  
+  .pl1 {
+    padding-left: 8px !important; }
+  
+  .pt2 {
+    padding-top: 16px !important; }
+  
+  .pb2 {
+    padding-bottom: 16px !important; }
+  
+  .pr2 {
+    padding-right: 16px !important; }
+  
+  .pl2 {
+    padding-left: 16px !important; }
+  
+  .pt3 {
+    padding-top: 24px !important; }
+  
+  .pb3 {
+    padding-bottom: 24px !important; }
+  
+  .pr3 {
+    padding-right: 24px !important; }
+  
+  .pl3 {
+    padding-left: 24px !important; }
+  
+  .pt4 {
+    padding-top: 32px !important; }
+  
+  .pb4 {
+    padding-bottom: 32px !important; }
+  
+  .pr4 {
+    padding-right: 32px !important; }
+  
+  .pl4 {
+    padding-left: 32px !important; }
+  
+  .mt0 {
+    margin-top: 0px !important; }
+  
+  .mb0 {
+    margin-bottom: 0px !important; }
+  
+  .mr0 {
+    margin-right: 0px !important; }
+  
+  .ml0 {
+    margin-left: 0px !important; }
+  
+  .mt1 {
+    margin-top: 8px !important; }
+  
+  .mb1 {
+    margin-bottom: 8px !important; }
+  
+  .mr1 {
+    margin-right: 8px !important; }
+  
+  .ml1 {
+    margin-left: 8px !important; }
+  
+  .mt2 {
+    margin-top: 16px !important; }
+  
+  .mb2 {
+    margin-bottom: 16px !important; }
+  
+  .mr2 {
+    margin-right: 16px !important; }
+  
+  .ml2 {
+    margin-left: 16px !important; }
+  
+  .mt3 {
+    margin-top: 24px !important; }
+  
+  .mb3 {
+    margin-bottom: 24px !important; }
+  
+  .mr3 {
+    margin-right: 24px !important; }
+  
+  .ml3 {
+    margin-left: 24px !important; }
+  
+  .mt4 {
+    margin-top: 32px !important; }
+  
+  .mb4 {
+    margin-bottom: 32px !important; }
+  
+  .mr4 {
+    margin-right: 32px !important; }
+  
+  .ml4 {
+    margin-left: 32px !important; }
+  
+  .no-border-shadow {
+    border: 0px !important;
+    box-shadow: 0 0px 0px rgba(10, 10, 10, 0.1) !important; }
+  
+  .construction-card-border {
+    border-radius: 22px;
+    box-shadow: 0 3px 6px 0 #4e3b21;
+    border: solid 3px #d97f04;
+    background-color: #ffffff; }
+  

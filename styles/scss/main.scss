@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+
+
+// ===== COLORS =====
+$garage: #90309d;
+$white: #ffffff;
+$pine-green: #326c3b;
+$construction: #d97f04;
+$parkshare: #20389b;
+$dark-red: #962828;
+$medium-grey: #6a6a6a;
+$black: #333333;
+$light-grey: #b1b1b1;
+$confirm-blue: #00a39d;
+
+// Update Bulma's global Colors
+
+
+// Setting of colors
+.garage {
+    color: $garage;
+}
+.white {
+    color: $white;
+}
+.pine-green {
+    color: $pine-green;
+}
+.construction {
+    color: $construction;
+}
+.parkshare {
+    color: $parkshare;
+}
+.dark-red {
+    color: $dark-red;
+}
+.medium-grey {
+    color: $medium-grey;
+}
+.black {
+    color: $black;
+}
+.light-grey {
+    color: $light-grey;
+}
+.confrirm-blue {
+    color: $confirm-blue;
+}
+
+// ===== END COLORS =====
+
+// ===== FONTS =====
+.fs-sm {
+    font-size: 18px!important;
+}
+.fs-med {
+    font-size: 21px!important;
+}
+.fs-lg {
+    font-size: 24px!important;
+}
+
+.fs-underline {
+    text-decoration: underline;
+}
+
+// ===== END FONTS =====
+
+
+
+// ===== SPACING =====
+$size0: 0px;
+$size1: 8px;
+$size2: 16px;
+$size3: 24px;
+$size4: 32px;
+
+.pt0 {
+    padding-top: $size0!important;
+}
+.pb0 {
+    padding-bottom: $size0!important;
+}
+.pr0 {
+    padding-right: $size0!important;
+}
+.pl0 {
+    padding-left: $size0!important;
+}
+
+.pt1 {
+    padding-top: $size1!important;
+}
+.pb1 {
+    padding-bottom: $size1!important;
+}
+.pr1 {
+    padding-right: $size1!important;
+}
+.pl1 {
+    padding-left: $size1!important;
+}
+
+.pt2 {
+    padding-top: $size2!important;
+}
+.pb2 {
+    padding-bottom: $size2!important;
+}
+.pr2 {
+    padding-right: $size2!important;
+}
+.pl2 {
+    padding-left: $size2!important;
+}
+
+.pt3 {
+    padding-top: $size3!important;
+}
+.pb3 {
+    padding-bottom: $size3!important;
+}
+.pr3 {
+    padding-right: $size3!important;
+}
+.pl3 {
+    padding-left: $size3!important;
+}
+
+.pt4 {
+    padding-top: $size4!important;
+}
+.pb4 {
+    padding-bottom: $size4!important;
+}
+.pr4 {
+    padding-right: $size4!important;
+}
+.pl4 {
+    padding-left: $size4!important;
+}
+
+.mt0 {
+    margin-top: $size0!important;
+}
+.mb0 {
+    margin-bottom: $size0!important;
+}
+.mr0 {
+    margin-right: $size0!important;
+}
+.ml0 {
+    margin-left: $size0!important;
+}
+
+.mt1 {
+    margin-top: $size1!important;
+}
+.mb1 {
+    margin-bottom: $size1!important;
+}
+.mr1 {
+    margin-right: $size1!important;
+}
+.ml1 {
+    margin-left: $size1!important;
+}
+
+.mt2 {
+    margin-top: $size2!important;
+}
+.mb2 {
+    margin-bottom: $size2!important;
+}
+.mr2 {
+    margin-right: $size2!important;
+}
+.ml2 {
+    margin-left: $size2!important;
+}
+
+.mt3 {
+    margin-top: $size3!important;
+}
+.mb3 {
+    margin-bottom: $size3!important;
+}
+.mr3 {
+    margin-right: $size3!important;
+}
+.ml3 {
+    margin-left: $size3!important;
+}
+
+.mt4 {
+    margin-top: $size4!important;
+}
+.mb4 {
+    margin-bottom: $size4!important;
+}
+.mr4 {
+    margin-right: $size4!important;
+}
+.ml4 {
+    margin-left: $size4!important;
+}
+
+// ===== END SPACING =====
+
+// ===== CUSTOM CLASSES =====
+
+
+// ===== END CUSTOM CLASSES =====
+.no-border-shadow {
+    border: 0px!important;
+    box-shadow:  0 0px 0px rgba(10, 10, 10, 0.1)!important;
+}
+
+.construction-card-border {
+    border-radius: 22px;
+    box-shadow: 0 3px 6px 0 #4e3b21;
+    border: solid 3px $construction;
+    background-color: $white;
+}
+
+
+//========= DO NOT WRITE BELOW THIS LINE ==========
+
+// to compile:
+// sass --sourcemap=none styles/scss/main.scss:styles/css/main.css --trace
