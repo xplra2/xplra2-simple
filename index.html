@@ -3,6 +3,7 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css">
 
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
@@ -24,57 +25,48 @@
 
   
   <body>
-    <div class="wrapper">
+    <div id="wrapper">
         <div id="map"></div>
-        <div class="content">
-          <div class="card">
-            <div class="card-content">
-              hello
+        <!-- <p>{{location}}</p> -->
+        <div class="card">
+          <button id='map-link' v-on:click='getLocation()' class='button'>Get Location</button>
+          <div class="field" >
+            <div class="control">
+                <button class='button'>Card One</button>
+                <button class='button'>Card Two</button>
+                <button class='button'>Card Three</button>
+                <button class='button'>Card Four</button>
+                <button class='button'>Card Five</button>
             </div>
           </div>
+
+          <div class="section is-medium">
+              <div class="card garage-card-border">
+                <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                  <p class="card-header-title has-text-centered garage fs-lg pb0 level-item">
+                    "Street Name" Parking
+                  </p>
+                </header>
+                <div class="card-content fs-med pt2">
+                  <p class="has-text-centered pb0"> Cost </p>
+                  <p class="has-text-centered pt2 pb0"> Type (2hrmax) </p>
+                  <p class="has-text-centered pt2 pb0 fs-underline"> Description</p>
+                  <p class="has-text-centered pt1 pb0 fs-sm"> Celiac forage williamsburg, raclette selfies snackwave kombucha kickstarter.</p>
+                  <div class="level is-mobile mb0 pt2">
+                    <div class="level-item">
+                        <a class="button is-rounded is-medium get-direction-button">
+                        <div class="pine-green fs-lg fw-bold">Get Directions Here</div>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
+
+          
         </div>
     </div>
 
-<style>
-.wrapper{
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-#map{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.content{
-  position: absolute;
-  padding: 100px;
-}
-
-</style>
-    <script>
-      var map;
-
-      function createPin(latLong, myMap, title, pinType){
-        var marker = new google.maps.Marker({
-          position: latLong,
-          map: myMap,
-          title: title,
-          icon: pinType
-        });
-      }
-      
-      var myLatLng = {lat: 42.2808, lng: -83.7430};
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 42.2808, lng: -83.7430},
-          zoom: 14
-        });
-
-        createPin(myLatLng, map, "fjkladsfdjal", './src/markers/GaragePin.svg');
-      }
-    </script>
     <script src='vueScript.js'></script>
     
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt08QRtM9SQlwlstivjJGpw6lGX1C8LIY&callback=initMap"></script>
