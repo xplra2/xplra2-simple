@@ -80,6 +80,14 @@ function geocodeLatLng(geocoder, latlng) {
       if (results[0]) {
         console.log(results[0].formatted_address);
         globalActions.reverseGeoCode = results[0].formatted_address;
+        commaSplit =  globalActions.reverseGeoCode.split(",");
+        spaceSplit = commaSplit[0].split(" ")
+        if (spaceSplit.length == 4) {
+          globalActions.reverseGeoCode = spaceSplit[2]
+        }
+        else {
+          globalActions.reverseGeoCode = spaceSplit[1]
+        }
       } else {
         window.alert('No results found');
       }
@@ -167,7 +175,14 @@ let globalActions = new Vue({
         this.isConstruction = true;
         var myTime = new Date(1970, 0, 1); // Epoch
         myTime.setSeconds(this.myCurrentData.Expiration.seconds); 
-        this.myCurrentData.myTime = myTime
+        var hours = myTime.getHours();
+        var minutes = myTime.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        this.myCurrentData.myTime = myTime.getMonth()+1 + "/" + myTime.getDate() + "/" + myTime.getFullYear() + "  " + strTime
 
       }
       else if (pinType === 'GaragePin'){
@@ -181,7 +196,14 @@ let globalActions = new Vue({
         console.log(this.myCurrentData.EndTime);
         var myTime = new Date(1970, 0, 1); // Epoch
         myTime.setSeconds(this.myCurrentData.EndTime.seconds); 
-        this.myCurrentData.myTime = myTime
+        var hours = myTime.getHours();
+        var minutes = myTime.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        this.myCurrentData.myTime = strTime
       }
       else if (pinType === 'StreetParkingPin'){
         this.isStreetParking = true;
