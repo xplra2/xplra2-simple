@@ -15,36 +15,36 @@ var db = firebase.firestore();
 
 db.collection("construction").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, "[" + doc.data().Type + "] " + doc.data().Notes, 'ConstructionPin');
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, "[" + doc.data().Type + "] " + doc.data().Notes, 'ConstructionPin', doc.data());
     });
 });
 
 db.collection("garage").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Cost + "/" + doc.data().CostType + " [" + doc.data().SpacesAvailable + " available]", 'GaragePin');
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Cost + "/" + doc.data().CostType + " [" + doc.data().SpacesAvailable + " available]", 'GaragePin', doc.data());
     });
 });
 
 db.collection("parkingattendant").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().ThreatLevel + " [car: " + doc.data().CarPresent + "]", 'ParkingAttendent');
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().ThreatLevel + " [car: " + doc.data().CarPresent + "]", 'ParkingAttendent', doc.data());
     });
 });
 
 db.collection("parkshare").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Description, 'ParkShare');
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Description, 'ParkShare', doc.data());
     });
 });
 
 db.collection("street").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        console.log(`${doc.data().Type}`);
-        console.log(`${doc.data().Location}`);
-        console.log(`${doc.data().Location.latitude}`);
-        console.log(`${doc.data().Location.longitude}`);
-        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Type, 'StreetParkingPin');
+        // console.log(`${doc.id} => ${doc.data()}`);
+        // console.log(`${doc.data().Type}`);
+        // console.log(`${doc.data().Location}`);
+        // console.log(`${doc.data().Location.latitude}`);
+        // console.log(`${doc.data().Location.longitude}`);
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Type, 'StreetParkingPin', doc.data());
     });
 });
 
@@ -52,21 +52,32 @@ var map;
 var MyGeocoder;
 
 // pass in 'ConstructionPin' as format for pinType
-function createPin(latLong, myMap, title, pinType){
+function createPin(latLong, myMap, title, pinType, data){
   var marker = new google.maps.Marker({
     position: latLong,
     map: myMap,
     title: title,
     icon: './src/markers/' + pinType + '.svg',
+    data: data
   }).addListener('click', function(){
+    recenterOnClick(latLong, 17);
+    console.log(data);
+    console.log(latLong);
+    globalActions.createCard(pinType, data, latLong);
   });
+}
+
+function recenterOnClick(latLong, zoomLevel){
+  map.setCenter(latLong);
+  map.setZoom(zoomLevel);
 }
 
 function geocodeLatLng(geocoder, latlng) {
   geocoder.geocode({'location': latlng}, function(results, status) {
     if (status === 'OK') {
       if (results[0]) {
-        console.log(results[0].formatted_address)
+        console.log(results[0].formatted_address);
+        globalActions.reverseGeoCode = results[0].formatted_address;
       } else {
         window.alert('No results found');
       }
@@ -86,24 +97,31 @@ function initMap() {
     zoom: 14
   })
 
+  map.addListener('click', function() {
+    globalActions.deselectCards();
+  });
+    
+
   // createPin(myLatLng, map, "fjkladsfdjal", 'GaragePin');
   // geocodeLatLng(MyGeocoder, {lat: 42.2808, lng: -83.7430});
-  // document.getElementById.
 }
-createPin(myLatLng, map, "fjkladsfdjal", 'GaragePin');
-
-
 
 
 
 let globalActions = new Vue({
   el: '#wrapper',
   data: {
-    location: '',
-    isCardSelected: false,
+    userLocation: '',
+    isGarage: false,
+    isParkingAttendant: false,
+    isConstruction: false,
+    isParkShare: false,
+    isStreetParking: false,
+    reverseGeoCode: '', // This is the street address in clean text
+    myCurrentData: {},
   },
   methods: {
-    getLocation: function(){      
+    getLocation: function(){     
         function error() {
           console.log('Unable to retrieve your location'); 
         }
@@ -111,32 +129,37 @@ let globalActions = new Vue({
         if (!navigator.geolocation) {
           console.log('Geolocation is not supported by your browser');
         } else {
-          navigator.geolocation.getCurrentPosition(this.latLong, error);
+          navigator.geolocation.getCurrentPosition(this.getUserLatLong, error);
         }
       
     },
 
-    latLong: function(position){
+    getUserLatLong: function(position){
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
       const dict = {lat: latitude, long: longitude};
       console.log(dict)
-      this.location = dict;
+      this.userLocation = dict;
     },
 
-    createCard: function(pinType, lat, long){
+    createCard: function(pinType, markerData, latLong){
+      this.deselectCards();
       this.isCardSelected = true;
+      this.myCurrentData = markerData;
+      geocodeLatLng(MyGeocoder, latLong);
+      console.log(this.reverseGeoCode)
+
       if (pinType === 'ConstructionPin'){
-        
+
       }
       else if (pinType === 'GaragePin'){
-
+        this.isGarage = true;
       }
       else if (pinType === 'ParkingAttendent'){
 
       }
       else if (pinType === 'ParkShare'){
-
+        this.isParkShare = true;
       }
       else if (pinType === 'StreetParkingPin'){
 
@@ -147,10 +170,21 @@ let globalActions = new Vue({
       }
     },
 
-    deselectCard: function(){
-      // removes card
-      this.isCardSelected = false;
-    }
+    deselectCards: function(){
+      // removes cards from display
+      this.isGarage = false;
+      this.isParkingAttendant = false;
+      this.isConstruction = false;
+      this.isStreetParking = false;
+      this.isParkShare = false;
+      this.myCurrentData = null;
+      this.reverseGeoCode = '';
+    },
+
+
+
+    // displaycard: function(){
+    // }
 
   },
   
@@ -162,17 +196,3 @@ let globalActions = new Vue({
     
   },
 })
-
-// let cards = new Vue.component('Constuction-Pin', {
-//   data: function() {
-//     return {
-
-//     }
-//   }
-//   template: 
-//   `
-  
-//   `
-// })
-
-
