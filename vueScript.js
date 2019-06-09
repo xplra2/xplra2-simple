@@ -130,6 +130,9 @@ let globalActions = new Vue({
     myCurrentData: {},
     settingsPanel: false,
     addPanel: false,
+    selected: '',
+    fieldOne: '',
+    fieldTwo: ''
   },
   methods: {
     getLocation: function(){     
@@ -148,7 +151,7 @@ let globalActions = new Vue({
     getUserLatLong: function(position){
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const dict = {lat: latitude, long: longitude};
+      const dict = {lat: latitude, lng: longitude};
       console.log(dict)
       this.userLocation = dict;
     },
@@ -237,15 +240,52 @@ let globalActions = new Vue({
       this.settingsPanel = false;
       this.addPanel = false;
       this.reverseGeoCode = '';
+      this.selected = 'Mild';
     },
 
-    submitParkShare: function(threatLevel){
-      // db.collection('parkingattendant').doc().set({
-      //   CarPresent: 'false',
-      //   LastReportedAt: ,
-      //   Location:,
-      //   ThreatLevel: 
-      // })      
+    submitParkingAttendant: function(){
+      this.getLocation();
+
+      var date = new Date(); 
+      var timestamp = Math.round(date.getTime()/1000);
+      var toSend = new firebase.firestore.Timestamp(timestamp);
+      var stuff;
+      setTimeout(function(){
+        stuff = new firebase.firestore.GeoPoint(this.userLocation.lat, this.userLocation.lng);
+        console.log(stuff)
+        db.collection('parkingattendant').doc().set({
+          CarPresent: 'false',
+          LastReportedAt: toSend,
+          Location: stuff,
+          ThreatLevel: this.selected
+        })        
+      }.bind(this), 10);
+
+    },
+
+    submitParkShare: function(){
+      this.getLocation();
+
+      var date = new Date(); 
+      var timestamp = Math.round(date.getTime()/1000);
+      var toSendEarly = new firebase.firestore.Timestamp(timestamp);
+      
+      var endTimeStamp = (parseFloat(this.selected) * 60.0 * 1000.0) + timestamp
+      var toSendEnd = new firebase.firestore.Timestamp(endTimeStamp);
+      var stuff;
+
+      setTimeout(function(){
+        stuff = new firebase.firestore.GeoPoint(this.userLocation.lat, this.userLocation.lng);
+        console.log(stuff)
+        db.collection('parkshare').doc().set({
+          Cost: this.fieldOne,
+          Description: this.fieldTwo,
+          EndTime: toSendEnd,
+          Location: stuff,
+          Occupied: false,
+          StartTime: toSendEarly,
+        })        
+      }.bind(this), 10);
     }
   },
   
