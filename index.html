@@ -44,7 +44,7 @@
                 <div class="card garage-card-border">
                   <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
                     <p class="card-header-title has-text-centered garage fs-lg pb0 level-item">
-                      {{reverseGeoCode}} Parking
+                      {{reverseGeoCode}} Garage
                     </p>
                   </header>
                   <div class="card-content fs-med pt2">
@@ -89,14 +89,15 @@
               <div class="card street-card-border">
                   <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
                     <p class="card-header-title has-text-centered dark-red fs-lg pb0 level-item">
-                      {{reverseGeoCode}}
+                      {{reverseGeoCode}} Spot
                     </p>
                   </header>
                   <div class="card-content fs-med pt2">
-                    <p class="has-text-centered pb0"> Cost: ${{myCurrentData.Cost}} </p>
-                    <p class="has-text-centered pt2 pb0"> {{myCurrentData.maxDuration}}</p>
+                    <p class="has-text-centered pb0"> Cost: ${{myCurrentData.Cost}} / {{myCurrentData.CostType}} </p>
+                    <p class="has-text-centered pt2 pb0"> {{myCurrentData.Type}}</p>
+                    <!-- <p class="has-text-centered pt2 pb0"> {{myCurrentData.maxDuration}}</p> -->
                     <p class="has-text-centered pt2 pb0 fs-underline"> Description</p>
-                    <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.Description }}</p>
+                    <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.description }}</p>
                     <div class="level is-mobile mb0 pt2">
                       <div class="level-item">
                           <a class="button is-rounded is-medium get-direction-button">
@@ -109,8 +110,8 @@
             </div>
             <div v-if="isConstruction" class="section">
                 <div class="card construction-card-border">
-                    <header class="card-header is-centered no-border-shadow pb0">
-                      <p class="card-header-title has-text-centered construction fs-lg pb0">
+                    <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                      <p class="card-header-title level-item has-text-centered construction fs-lg pb0">
                         {{reverseGeoCode}} Construction
                       </p>
                     </header>
@@ -147,7 +148,7 @@
                   </header>
                   <div class="card-content fs-med pt2">
                     <p class="has-text-centered pb0"> Threat Level: {{myCurrentData.ThreatLevel}}</p>
-                    <p class="has-text-centered pt2 pb0"> {{reverseGeoCode}} </p>
+                    <p class="has-text-centered pt2 pb0"> {{reverseGeoCode}} Street</p>
                     <p class="has-text-centered pt2 pb0 fs-underline"> Last Reported At: </p>
                     <p class="has-text-centered pt1 pb0 fs-sm"> Watch out, he's a lumbersexual flexatarian</p>
                     <div class="columns is-mobile pt2">
