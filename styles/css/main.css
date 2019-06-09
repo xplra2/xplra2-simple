@@ -227,6 +227,9 @@
 .full-width {
   width: 100%; }
 
+.card-header {
+  display: -webkit-box !important; }
+
 .switch {
   position: relative;
   display: inline-block;
