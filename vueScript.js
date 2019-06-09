@@ -1,3 +1,28 @@
+var firebaseConfig = {
+  apiKey: "AIzaSyAyDf8SscMFHHtxIP35NSVqkfbxTrEVCaM",
+  authDomain: "xplra2.firebaseapp.com",
+  databaseURL: "https://xplra2.firebaseio.com",
+  projectId: "xplra2",
+  storageBucket: "xplra2.appspot.com",
+  messagingSenderId: "522767696585",
+  appId: "1:522767696585:web:9131abc3e8dd0172"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+
+db.collection("parkshare").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(`${doc.data().Description}`);
+        console.log(`${doc.data().Location}`);
+        console.log(`${doc.data().Location.latitude}`);
+        console.log(`${doc.data().Location.longitude}`);
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Description, 'ParkShare');
+    });
+});
+
+
 var map;
 
 // pass in 'ConstructionPin' as format for pinType
