@@ -183,7 +183,6 @@ let globalActions = new Vue({
         minutes = minutes < 10 ? '0'+minutes : minutes;
         var strTime = hours + ':' + minutes + ' ' + ampm;
         this.myCurrentData.myTime = myTime.getMonth()+1 + "/" + myTime.getDate() + "/" + myTime.getFullYear() + "  " + strTime
-
       }
       else if (pinType === 'GaragePin'){
         this.isGarage = true;
@@ -263,6 +262,8 @@ let globalActions = new Vue({
       this.addPanel = false;
       this.reverseGeoCode = '';
       this.selected = 'Mild';
+      this.fieldOne = '';
+      this.fieldTwo = '';
     },
 
     submitParkingAttendant: function(){
@@ -281,7 +282,7 @@ let globalActions = new Vue({
           Location: stuff,
           ThreatLevel: this.selected
         })        
-      }.bind(this), 10);
+      }.bind(this), 100);
 
     },
 
@@ -292,7 +293,7 @@ let globalActions = new Vue({
       var timestamp = Math.round(date.getTime()/1000);
       var toSendEarly = new firebase.firestore.Timestamp(timestamp);
       
-      var endTimeStamp = (parseFloat(this.selected) * 60.0 * 1000.0) + timestamp
+      var endTimeStamp = (parseFloat(this.selected) * 60.0) + timestamp
       var toSendEnd = new firebase.firestore.Timestamp(endTimeStamp);
       var stuff;
 
@@ -306,9 +307,41 @@ let globalActions = new Vue({
           Location: stuff,
           Occupied: false,
           StartTime: toSendEarly,
+        })
+        .then(() => {
+          document.location.reload();
+        })
+      }.bind(this), 100);
+      
+    },
+
+    submitStreet: function(){
+      this.getLocation();
+
+      var date = new Date(); 
+      var timestamp = Math.round(date.getTime()/1000);
+      var toSendEarly = new firebase.firestore.Timestamp(timestamp);
+      
+      var endTimeStamp = (parseFloat(this.selected) * 60.0) + timestamp
+      var toSendEnd = new firebase.firestore.Timestamp(endTimeStamp);
+      var stuff;
+
+      setTimeout(function(){
+        stuff = new firebase.firestore.GeoPoint(this.userLocation.lat, this.userLocation.lng);
+        console.log(stuff)
+        db.collection('street').doc().set({
+          Cost: this.fieldOne,
+          CostType: 'Hr',
+          ID: 'myID2',
+          IDs: [],
+          LastReportedAt: toSendEarly,
+          Location: stuff,
+          Type: 'metered',
+          description: this.fieldTwo,
         })        
-      }.bind(this), 10);
+      }.bind(this), 100);
     }
+    
   },
   
   mounted() {
