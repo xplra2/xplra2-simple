@@ -278,6 +278,14 @@ $size4: 32px;
     background-color: $white;
 }
 
+.input-field-underline {
+    border-bottom: solid 1px $medium-grey;
+}
+
+.full-width {
+    width:  100%;
+}
+
 
 .switch {
     position: relative;
