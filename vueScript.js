@@ -50,6 +50,8 @@ db.collection("street").get().then((querySnapshot) => {
 
 var map;
 var MyGeocoder;
+var directionsService;
+var directionsDisplay;
 
 // pass in 'ConstructionPin' as format for pinType
 function createPin(latLong, myMap, title, pinType, data){
@@ -90,7 +92,9 @@ function geocodeLatLng(geocoder, latlng) {
 
 var myLatLng = {lat: 42.2808, lng: -83.7430};
 function initMap() {
-  MyGeocoder = new google.maps.Geocoder()
+  MyGeocoder = new google.maps.Geocoder();
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 42.2808, lng: -83.7430},
@@ -119,6 +123,7 @@ let globalActions = new Vue({
     isStreetParking: false,
     reverseGeoCode: '', // This is the street address in clean text
     myCurrentData: {},
+    settingsPanel: false,
   },
   methods: {
     getLocation: function(){     
@@ -150,24 +155,37 @@ let globalActions = new Vue({
       console.log(this.reverseGeoCode)
 
       if (pinType === 'ConstructionPin'){
+        this.isConstruction = true;
+        var myTime = new Date(1970, 0, 1); // Epoch
+        myTime.setSeconds(this.myCurrentData.Expiration.seconds); 
+        this.myCurrentData.myTime = myTime
 
       }
       else if (pinType === 'GaragePin'){
         this.isGarage = true;
       }
       else if (pinType === 'ParkingAttendent'){
-
+        this.isParkingAttendant = true;
       }
       else if (pinType === 'ParkShare'){
         this.isParkShare = true;
+        console.log(this.myCurrentData.EndTime);
+        var myTime = new Date(1970, 0, 1); // Epoch
+        myTime.setSeconds(this.myCurrentData.EndTime.seconds); 
+        this.myCurrentData.myTime = myTime
       }
       else if (pinType === 'StreetParkingPin'){
-
+        this.isStreetParking = true;
       }
       else{
         this.isCardSelected = false;
-        console.log('Bad pin type format')
+        console.log('Bad pin type format');
       }
+    },
+
+    openSettings: function(){
+      this.deselectCards();
+      this.settingsPanel = true;
     },
 
     deselectCards: function(){
@@ -178,6 +196,7 @@ let globalActions = new Vue({
       this.isStreetParking = false;
       this.isParkShare = false;
       this.myCurrentData = null;
+      this.settingsPanel = false;
       this.reverseGeoCode = '';
     },
 

@@ -71,10 +71,10 @@
                       </p>
                     </header>
                     <div class="card-content fs-med pt2">
-                      <p class="has-text-centered pb0"> Cost </p>
-                      <p class="has-text-centered pt2 pb0"> Available Till: "Time" </p>
+                      <p class="has-text-centered pb0"> {{myCurrentData.Cost}} </p>
+                      <p class="has-text-centered pt2 pb0"> Available Till: {{myCurrentData.myTime}} </p>
                       <p class="has-text-centered pt2 pb0 fs-underline"> Description</p>
-                      <p class="has-text-centered pt1 pb0 fs-sm"> Celiac forage williamsburg, raclette selfies snackwave kombucha kickstarter.</p>
+                      <p class="has-text-centered pt1 pb0 fs-sm"> {{myCurrentData.Description}}</p>
                       <div class="level is-mobile mb0 pt2">
                         <div class="level-item">
                             <a class="button is-rounded is-medium get-direction-button">
@@ -85,11 +85,201 @@
                     </div>
                   </div>          
             </div> 
+            <div v-if="isStreetParking" class="section">
+              <div class="card street-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered dark-red fs-lg pb0 level-item">
+                      {{reverseGeoCode}}
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <p class="has-text-centered pb0"> Cost: ${{myCurrentData.Cost}} </p>
+                    <p class="has-text-centered pt2 pb0"> {{myCurrentData.maxDuration}}</p>
+                    <p class="has-text-centered pt2 pb0 fs-underline"> Description</p>
+                    <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.Description }}</p>
+                    <div class="level is-mobile mb0 pt2">
+                      <div class="level-item">
+                          <a class="button is-rounded is-medium get-direction-button">
+                          <div class="pine-green fs-lg fw-bold">Get Directions Here</div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+            </div>
+            <div v-if="isConstruction" class="section">
+                <div class="card construction-card-border">
+                    <header class="card-header is-centered no-border-shadow pb0">
+                      <p class="card-header-title has-text-centered construction fs-lg pb0">
+                        {{reverseGeoCode}} Construction
+                      </p>
+                    </header>
+                    <div class="card-content fs-med pt2">
+                      <p class="has-text-centered pb0">Type of Construction: {{myCurrentData.Type}} </p>
+                      <p class="has-text-centered pt2 pb0"> Ending On: {{myCurrentData.myTime}}</p>
+                      <p class="has-text-centered pt2 pb0 fs-underline"> Notes:</p>
+                      <p class="has-text-centered pt1 pb0 fs-sm"> {{myCurrentData.Notes}}</p>
+                      <div class="columns is-mobile pt2">
+                        <div class="column level is-mobile mb0 p0">
+                          <div class="level-item">
+                            <figure class="image is-64x64 hoverthumb">
+                              <img src="./src/icons/thumbs-down.svg">
+                            </figure>
+                          </div>
+                        </div>
+                        <div class="column level is-mobile p0">
+                          <div  class="level-item">
+                            <figure class="image is-64x64 hoverthumb">
+                              <img src="./src/icons/thumbs-up.svg">
+                            </figure>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                
+            </div>
+            <div v-if="isParkingAttendant" class="section">
+              <div class="card attendent-card-border">
+                  <header class="card-header level is-mobile is-centered no-border-shadow mb0 pb0">
+                    <p class="card-header-title level-item has-text-centered pine-green fs-lg pb0">
+                      Parking Attendent
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <p class="has-text-centered pb0"> Threat Level: {{myCurrentData.ThreatLevel}}</p>
+                    <p class="has-text-centered pt2 pb0"> {{reverseGeoCode}} </p>
+                    <p class="has-text-centered pt2 pb0 fs-underline"> Last Reported At: </p>
+                    <p class="has-text-centered pt1 pb0 fs-sm"> Watch out, he's a lumbersexual flexatarian</p>
+                    <div class="columns is-mobile pt2">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          <figure class="image is-64x64 hoverthumb">
+                            <img src="./src/icons/thumbs-down.svg">
+                          </figure>
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div  class="level-item">
+                          <figure class="image is-64x64 hoverthumb">
+                            <img src="../../src/icons/thumbs-up.svg">
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>          
+            </div>
+            <div v-if="settingsPanel" class="section">
+              <div  class="card settings-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered black fs-underline fs-lg pb0 level-item">
+                      Settings
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="columns is-mobile mb0">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          Garages
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div class="level-item">
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="columns is-mobile mb0">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          Street
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div class="level-item">
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="columns is-mobile mb0">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          ParkShare
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div class="level-item">
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="columns is-mobile mb0">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          Attendents
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div class="level-item">
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="columns is-mobile mb0">
+                      <div class="column level is-mobile mb0 p0">
+                        <div class="level-item">
+                          Construction
+                        </div>
+                      </div>
+                      <div class="column level is-mobile p0">
+                        <div class="level-item">
+                          <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level is-mobile mb0 pt2">
+                      <div class="level-item">
+                          <a class="button is-rounded is-medium sign-up-button">
+                          <div class="$medium-grey fs-med">Sign up</div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>   
+          
+          <div class="settings-button">
+              <figure v-on:click='openSettings()' class="image is-64x64 hoverthumb">
+                  <img src="./src/icons/settings.svg">
+              </figure>
+            </div>
+            <div class="add-button">
+              <figure class="image is-64x64 hoverthumb">
+                  <img src="./src/icons/addcontent.svg">
+              </figure>
           </div>
+    
+      </div>
 
           
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:#6a6a6a}.cls-3{filter:url(#Rectangle_8)}
+        </style>
+        <filter id="Rectangle_8" width="57" height="57" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="2"/>
+            <feGaussianBlur result="blur" stdDeviation="1.5"/>
+            <feFlood flood-opacity=".302"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Settings_Button" data-name="Settings Button" transform="translate(-5.5 -8.5)">
+        <g class="cls-3" transform="translate(5.5 8.5)">
+            <rect id="Rectangle_8-2" width="48" height="48" class="cls-1" data-name="Rectangle 8" rx="11" transform="translate(4.5 2.5)"/>
+        </g>
+        <circle id="Ellipse_5" cx="11.118" cy="11.118" r="11.118" class="cls-1" data-name="Ellipse 5" transform="translate(22.671 23.412)"/>
+        <path id="cog-solid" d="M19.1 31.146l3.19-1.846a14.432 14.432 0 0 1 0-5.26L19.1 22.2a.906.906 0 0 1-.412-1.049 18.661 18.661 0 0 1 4.1-7.088.9.9 0 0 1 1.109-.172l3.192 1.843a14.14 14.14 0 0 1 4.555-2.63V9.425a.9.9 0 0 1 .7-.877 18.836 18.836 0 0 1 8.182 0 .9.9 0 0 1 .7.877v3.686a14.587 14.587 0 0 1 4.555 2.63l3.19-1.841a.89.89 0 0 1 1.109.172 18.549 18.549 0 0 1 4.1 7.088.9.9 0 0 1-.412 1.049l-3.192 1.843a14.432 14.432 0 0 1 0 5.26l3.192 1.843a.906.906 0 0 1 .412 1.049 18.661 18.661 0 0 1-4.1 7.088.9.9 0 0 1-1.109.172l-3.192-1.844a14.14 14.14 0 0 1-4.555 2.63v3.686a.9.9 0 0 1-.7.877 18.836 18.836 0 0 1-8.182 0 .9.9 0 0 1-.7-.877V40.25a14.586 14.586 0 0 1-4.555-2.63l-3.192 1.843a.89.89 0 0 1-1.109-.172 18.548 18.548 0 0 1-4.1-7.088.925.925 0 0 1 .414-1.057zm17.338 1.521a5.994 5.994 0 1 0-5.994-5.994 6 6 0 0 0 5.992 5.994z" class="cls-2" transform="translate(-2.644 7.901)"/>
+    </g>
+</svg>

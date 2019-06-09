@@ -305,3 +305,19 @@ input:checked + .slider:before {
   left: 0;
   right: 0;
 }
+
+.hoverthumb{
+  cursor: pointer;
+}
+
+.settings-button{
+  position: absolute;
+  top: 8%;
+  left: 0%;
+}
+
+.add-button{
+  position: absolute;
+  top: 8%;
+  right: 0%;
+}

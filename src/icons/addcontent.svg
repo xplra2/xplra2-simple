@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:#6a6a6a}.cls-3{filter:url(#Rectangle_9)}
+        </style>
+        <filter id="Rectangle_9" width="57" height="57" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="2"/>
+            <feGaussianBlur result="blur" stdDeviation="1.5"/>
+            <feFlood flood-opacity=".302"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Plus_Button" data-name="Plus Button" transform="translate(-301.758 -6.758)">
+        <g class="cls-3" transform="translate(301.76 6.76)">
+            <rect id="Rectangle_9-2" width="48" height="48" class="cls-1" data-name="Rectangle 9" rx="11" transform="translate(4.5 2.5)"/>
+        </g>
+        <circle id="Ellipse_1" cx="17.189" cy="17.189" r="17.189" class="cls-2" data-name="Ellipse 1" transform="translate(313 16)"/>
+        <path id="Rectangle_1" d="M0 0h5.73v24.352H0z" class="cls-1" data-name="Rectangle 1" transform="translate(327.325 21.014)"/>
+        <path id="Rectangle_2" d="M0 0h5.73v24.352H0z" class="cls-1" data-name="Rectangle 2" transform="rotate(90 156.02 186.345)"/>
+    </g>
+</svg>
