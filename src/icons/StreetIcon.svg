@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51.789" height="51.789" viewBox="0 0 51.789 51.789">
+    <defs>
+        <style>
+            .cls-1{fill:#9b0808}.cls-2,.cls-4{fill:#fff}.cls-3,.cls-5,.cls-7{fill:#962828}.cls-3{stroke:#962828}.cls-4{font-size:13px;font-family:Arial-Black,Arial #000;font-weight:800}.cls-6,.cls-7{stroke:none}.cls-8{fill:none}
+        </style>
+    </defs>
+    <g id="StreetIcon">
+        <g id="Path_15" class="cls-1" data-name="Path 15">
+            <path d="M25.894 49.289a23.32 23.32 0 0 1-16.542-6.852A23.32 23.32 0 0 1 2.5 25.894 23.32 23.32 0 0 1 9.352 9.352 23.32 23.32 0 0 1 25.894 2.5a23.32 23.32 0 0 1 16.542 6.852 23.32 23.32 0 0 1 6.853 16.542 23.32 23.32 0 0 1-6.852 16.542 23.32 23.32 0 0 1-16.543 6.853z" class="cls-6"/>
+            <path d="M25.894 5a20.758 20.758 0 0 0-14.774 6.12A20.758 20.758 0 0 0 5 25.894a20.758 20.758 0 0 0 6.12 14.775 20.758 20.758 0 0 0 14.774 6.12 20.758 20.758 0 0 0 14.775-6.12 20.758 20.758 0 0 0 6.12-14.775 20.758 20.758 0 0 0-6.12-14.774A20.758 20.758 0 0 0 25.894 5m0-5C40.196 0 51.79 11.593 51.79 25.894c0 14.302-11.593 25.895-25.895 25.895C11.594 51.789 0 40.196 0 25.894 0 11.594 11.593 0 25.894 0z" class="cls-7"/>
+        </g>
+        <path id="Path_16" d="M21.577 0A21.577 21.577 0 1 1 0 21.577 21.577 21.577 0 0 1 21.577 0z" class="cls-2" data-name="Path 16" transform="translate(4.264 4.264)"/>
+        <g id="Street_Parking" data-name="Street Parking" transform="translate(16.525 8.562)">
+            <g id="Group_4" data-name="Group 4">
+                <g id="Sign">
+                    <g id="Rectangle_3" class="cls-3" data-name="Rectangle 3">
+                        <rect width="19.727" height="19.065" class="cls-6" rx="6"/>
+                        <rect width="18.727" height="18.065" x=".5" y=".5" class="cls-8" rx="5.5"/>
+                    </g>
+                </g>
+                <text id="P" class="cls-4" transform="translate(5.528 14.575)">
+                    <tspan x="0" y="0">P</tspan>
+                </text>
+            </g>
+            <path id="Rectangle_6" d="M0 0h3.838v15.64a1.919 1.919 0 0 1-1.919 1.919A1.919 1.919 0 0 1 0 15.64V0z" class="cls-5" data-name="Rectangle 6" transform="translate(7.757 16.174)"/>
+        </g>
+    </g>
+</svg>

@@ -312,12 +312,12 @@ input:checked + .slider:before {
 
 .settings-button{
   position: absolute;
-  top: 8%;
+  top: 10%;
   left: 0%;
 }
 
 .add-button{
   position: absolute;
-  top: 8%;
+  top: 10%;
   right: 0%;
 }

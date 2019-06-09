@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51.789" height="51.789" viewBox="0 0 51.789 51.789">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:#20389b}.cls-1{stroke:#20389b;stroke-width:5px}.cls-2{fill:#fff}.cls-3{font-size:23px;font-family:Arial-Black,Arial #000;font-weight:800}.cls-4{stroke:none}.cls-5{fill:none}
+        </style>
+    </defs>
+    <g id="ParkShareIcon">
+        <g id="Ellipse_7" class="cls-1" data-name="Ellipse 7">
+            <circle cx="25.894" cy="25.894" r="25.894" class="cls-4"/>
+            <circle cx="25.894" cy="25.894" r="23.394" class="cls-5"/>
+        </g>
+        <path id="Path_17" d="M21.556 0A21.556 21.556 0 1 1 0 21.556 21.556 21.556 0 0 1 21.556 0z" class="cls-2" data-name="Path 17" transform="translate(4.284 4.284)"/>
+        <g id="ParkShare" transform="translate(9.258 9.878)">
+            <text id="PS" class="cls-3" transform="translate(0 25)">
+                <tspan x="0" y="0">PS</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
