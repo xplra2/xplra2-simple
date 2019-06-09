@@ -1,3 +1,53 @@
+var firebaseConfig = {
+  apiKey: "AIzaSyAyDf8SscMFHHtxIP35NSVqkfbxTrEVCaM",
+  authDomain: "xplra2.firebaseapp.com",
+  databaseURL: "https://xplra2.firebaseio.com",
+  projectId: "xplra2",
+  storageBucket: "xplra2.appspot.com",
+  messagingSenderId: "522767696585",
+  appId: "1:522767696585:web:9131abc3e8dd0172"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+
+// TODO: this is dumb and should be a function vs. just the same thing over and over:
+
+db.collection("construction").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, "[" + doc.data().Type + "] " + doc.data().Notes, 'ConstructionPin');
+    });
+});
+
+db.collection("garage").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Cost + "/" + doc.data().CostType + " [" + doc.data().SpacesAvailable + " available]", 'GaragePin');
+    });
+});
+
+db.collection("parkingattendant").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().ThreatLevel + " [car: " + doc.data().CarPresent + "]", 'ParkingAttendent');
+    });
+});
+
+db.collection("parkshare").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Description, 'ParkShare');
+    });
+});
+
+db.collection("street").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(`${doc.data().Type}`);
+        console.log(`${doc.data().Location}`);
+        console.log(`${doc.data().Location.latitude}`);
+        console.log(`${doc.data().Location.longitude}`);
+        createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, doc.data().Type, 'StreetParkingPin');
+    });
+});
+
 var map;
 var MyGeocoder;
 
