@@ -232,6 +232,12 @@
   border: solid 1px #326c3b;
   background-color: #ffffff; }
 
+.cancel-button {
+  border-radius: 24px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.29);
+  border: solid 1px #962828;
+  background-color: #ffffff; }
+
 .input-field-underline {
   border-bottom: solid 1px #6a6a6a; }
 
