@@ -117,13 +117,19 @@ let globalActions = new Vue({
   data: {
     userLocation: '',
     isGarage: false,
+    isGarageAdd: false,
     isParkingAttendant: false,
+    isParkingAttendantAdd: false,
     isConstruction: false,
+    isConstructionAdd: false,
     isParkShare: false,
+    isParkShareAdd: false,
     isStreetParking: false,
+    isStreetParkingAdd: false,
     reverseGeoCode: '', // This is the street address in clean text
     myCurrentData: {},
     settingsPanel: false,
+    addPanel: false,
   },
   methods: {
     getLocation: function(){     
@@ -188,23 +194,59 @@ let globalActions = new Vue({
       this.settingsPanel = true;
     },
 
+    openAddPanel: function(){
+      this.deselectCards();
+      this.addPanel = true;
+    },
+
+    addParkingAttendant: function(){
+      this.deselectCards();
+      this.isParkingAttendantAdd = true;
+    },
+    addGarage: function(){
+      this.deselectCards();
+      this.isGarageAdd = true;
+
+    },
+    addStreetParking: function(){
+      this.deselectCards();
+      this.isStreetParkingAdd = true;
+    },
+    addParkShare: function(){
+      this.deselectCards();
+      this.isParkShareAdd = true;
+    },
+    addConstruction: function(){
+      this.deselectCards();
+      this.isConstructionAdd = true;
+    },
+
     deselectCards: function(){
       // removes cards from display
       this.isGarage = false;
+      this.isGarageAdd = false;
       this.isParkingAttendant = false;
+      this.isParkingAttendantAdd = false;
       this.isConstruction = false;
+      this.isConstructionAdd = false;
       this.isStreetParking = false;
+      this.isStreetParkingAdd = false;
       this.isParkShare = false;
+      this.isParkShareAdd = false;
       this.myCurrentData = null;
       this.settingsPanel = false;
+      this.addPanel = false;
       this.reverseGeoCode = '';
     },
 
-
-
-    // displaycard: function(){
-    // }
-
+    submitParkShare: function(threatLevel){
+      // db.collection('parkingattendant').doc().set({
+      //   CarPresent: 'false',
+      //   LastReportedAt: ,
+      //   Location:,
+      //   ThreatLevel: 
+      // })      
+    }
   },
   
   mounted() {

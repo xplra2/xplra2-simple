@@ -262,19 +262,282 @@
                   </div>
               </div>
             </div>
-          </div>   
+            <div v-if="isParkingAttendantAdd" class="section">
+                <div class="card attendent-card-border">
+                    <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                      <p class="card-header-title has-text-centered pine-green fs-lg pb0 level-item">
+                        Add Attendent
+                      </p>
+                    </header>
+                    <div class="card-content fs-med pt2">
+                      <div class="is-centered has-text-centered mt2 mb1">
+                        <div class="select fs-sm">
+                          <select>
+                            <option> Threat Level </option>
+                            <option>Mild</option>
+                            <option>Angry</option>
+                            <option>Vendetta</option>
+                            <option>Midnight</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="input-field-underline">
+                        <input placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                      </div>
+                        <div class="columns is-mobile pt2">
+                          <div class="column level is-mobile mb0 p0">
+                            <div class="level-item">
+                              <a class="button is-rounded is-medium cancel-button">
+                                <div class="dark-red fw-bold fs-med">Cancel</div>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="column level is-mobile p0">
+                            <div  class="level-item">
+                              <a class="button is-rounded is-medium get-direction-button ">
+                                <div class="pine-green fw-bold fs-med">Submit</div>
+                              </a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>          
+            </div>
+            <div v-if="isParkShareAdd" class="section">
+                <div class="card parkshare-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered parkshare fs-lg pb0 level-item">
+                      Add ParkShare
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="input-field-underline">
+                      <input placeholder="Cost (format: 1.25)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="is-centered has-text-centered mt2 mb1">
+                      <div class="select fs-sm">
+                        <select>
+                          <option> Time Limit </option>
+                          <option>30 min</option>
+                          <option>1 hr</option>
+                          <option>1 hr 30 min</option>
+                          <option>2 hr</option>
+                          <option>2 hr 30 min</option>
+                          <option>3 hr</option>
+                          <option>3 hr 30 min</option>
+                          <option>4 hr</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-field-underline">
+                      <input placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                      <div class="columns is-mobile pt2">
+                        <div class="column level is-mobile mb0 p0">
+                          <div class="level-item">
+                            <a class="button is-rounded is-medium cancel-button">
+                              <div class="dark-red fw-bold fs-med">Cancel</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="column level is-mobile p0">
+                          <div  class="level-item">
+                            <a class="button is-rounded is-medium get-direction-button ">
+                              <div class="pine-green fw-bold fs-med">Submit</div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div v-if='isConstructionAdd' class="section">
+                <div class="card construction-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered construction fs-lg pb0 level-item">
+                      Add Construction
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="is-centered has-text-centered mt2 mb1">
+                      <div class="select fs-sm">
+                        <select>
+                          <option> Type </option>
+                          <option>Full Street</option>
+                          <option>One lane</option>
+                          <option>Both lanes with Delay</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-field-underline">
+                      <input placeholder="Ending At (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="input-field-underline">
+                      <input placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                      <div class="columns is-mobile pt2">
+                        <div class="column level is-mobile mb0 p0">
+                          <div class="level-item">
+                            <a class="button is-rounded is-medium cancel-button">
+                              <div class="dark-red fw-bold fs-med">Cancel</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="column level is-mobile p0">
+                          <div  class="level-item">
+                            <a class="button is-rounded is-medium get-direction-button ">
+                              <div class="pine-green fw-bold fs-med">Submit</div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div v-if="isGarageAdd" class="section">
+                <div class="card garage-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered garage fs-lg pb0 level-item">
+                      Update Garage Amount
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="input-field-underline">
+                      <input placeholder="Spots Available" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                      <div class="columns is-mobile pt2">
+                        <div class="column level is-mobile mb0 p0">
+                          <div class="level-item">
+                            <a class="button is-rounded is-medium cancel-button">
+                              <div class="dark-red fw-bold fs-med">Cancel</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="column level is-mobile p0">
+                          <div  class="level-item">
+                            <a class="button is-rounded is-medium get-direction-button ">
+                              <div class="pine-green fw-bold fs-med">Submit</div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div v-if="isStreetParkingAdd" class="section">
+                <div class="card street-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered dark-red fs-lg pb0 level-item">
+                      Add Street Parking
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="input-field-underline">
+                      <input placeholder="Cost (Example: 1.25)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                     <div class="is-centered has-text-centered mt2 mb1">
+                      <div class="select fs-sm">
+                        <select>
+                          <option>Time Limit </option>
+                          <option>30 min</option>
+                          <option>1 hr</option>
+                          <option>1 hr 30 min</option>
+                          <option>2 hr</option>
+                          <option>2 hr 30 min</option>
+                          <option>3 hr</option>
+                          <option>3 hr 30 min</option>
+                          <option>4 hr</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-field-underline">
+                      <input placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                      <div class="columns is-mobile pt2">
+                        <div class="column level is-mobile mb0 p0">
+                          <div class="level-item">
+                            <a class="button is-rounded is-medium cancel-button">
+                              <div class="dark-red fw-bold fs-med">Cancel</div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="column level is-mobile p0">
+                          <div  class="level-item">
+                            <a class="button is-rounded is-medium get-direction-button ">
+                              <div class="pine-green fw-bold fs-med">Submit</div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div> 
+          
+          
           
           <div class="settings-button">
-              <figure v-on:click='openSettings()' class="image is-64x64 hoverthumb">
-                  <img src="./src/icons/settings.svg">
-              </figure>
-            </div>
-            <div class="add-button">
-              <figure class="image is-64x64 hoverthumb">
-                  <img src="./src/icons/addcontent.svg">
-              </figure>
+            <figure v-on:click='openSettings()' class="image is-64x64 hoverthumb">
+                <img src="./src/icons/settings.svg">
+            </figure>
           </div>
-    
+          <div v-on:click=openAddPanel()  class="add-button">
+            <figure class="image is-64x64 hoverthumb">
+                <img src="./src/icons/addcontent.svg">
+            </figure>
+          </div>
+
+          <!-- <div class="section"> -->
+          <div v-if="addPanel" class=" add-button">
+          <div class="card add-expanded-border mr1">
+            <div class="columns ">
+              <div class="column is-narrow level mb0 pb0">
+                <div class="level-item ml1 mr1">
+                  <figure class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/addcontentexpanded.svg">
+                  </figure>
+                </div>
+              </div>
+              <div class="column is-narrow level mb0 pb0">
+                <div class="level-item ml1 mr1">
+                  <figure v-on:click="addStreetParking" class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/StreetIcon.svg">
+                  </figure>
+                </div>
+              </div>
+              <div class="column is-narrow level mb0 pb0">
+                <div class="level-item ml1 mr1">
+                  <figure v-on:click="addGarage" class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/GarageIcon.svg">
+                  </figure>
+                </div>
+              </div>
+              <div class="column is-narrow level mb0 pb0">
+                <div class="level-item ml1 mr1">
+                  <figure v-on:click="addParkingAttendant" class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/AttendentIcon.svg">
+                  </figure>
+                </div>
+              </div>
+              <div class="column is-narrow level mb0 pb0">
+                <div class="level-item ml1 mr1">
+                  <figure v-on:click="addParkShare" class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/ParkShareIcon.svg">
+                  </figure>
+                </div>
+              </div>
+              <div class="column is-narrow level mb0 pb1">
+                <div class="level-item ml1 mr1">
+                  <figure v-on:click="addConstruction" class="image is-64x64 hoverthumb">
+                    <img src="./src/icons/ConstructionIcon.svg">
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!-- </div> -->
+
       </div>
 
           
