@@ -80,6 +80,14 @@ function geocodeLatLng(geocoder, latlng) {
       if (results[0]) {
         console.log(results[0].formatted_address);
         globalActions.reverseGeoCode = results[0].formatted_address;
+        commaSplit =  globalActions.reverseGeoCode.split(",");
+        spaceSplit = commaSplit[0].split(" ")
+        if (spaceSplit.length == 4) {
+          globalActions.reverseGeoCode = spaceSplit[2]
+        }
+        else {
+          globalActions.reverseGeoCode = spaceSplit[1]
+        }
       } else {
         window.alert('No results found');
       }
@@ -138,6 +146,9 @@ let globalActions = new Vue({
     userData: {},
     settingsPanel: false,
     addPanel: false,
+    selected: '',
+    fieldOne: '',
+    fieldTwo: ''
   },
   methods: {
     getLocation: function(){     
@@ -156,7 +167,7 @@ let globalActions = new Vue({
     getUserLatLong: function(position){
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const dict = {lat: latitude, long: longitude};
+      const dict = {lat: latitude, lng: longitude};
       console.log(dict)
       this.userLocation = dict;
     },
@@ -172,7 +183,14 @@ let globalActions = new Vue({
         this.isConstruction = true;
         var myTime = new Date(1970, 0, 1); // Epoch
         myTime.setSeconds(this.myCurrentData.Expiration.seconds); 
-        this.myCurrentData.myTime = myTime
+        var hours = myTime.getHours();
+        var minutes = myTime.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        this.myCurrentData.myTime = myTime.getMonth()+1 + "/" + myTime.getDate() + "/" + myTime.getFullYear() + "  " + strTime
 
       }
       else if (pinType === 'GaragePin'){
@@ -186,7 +204,14 @@ let globalActions = new Vue({
         console.log(this.myCurrentData.EndTime);
         var myTime = new Date(1970, 0, 1); // Epoch
         myTime.setSeconds(this.myCurrentData.EndTime.seconds); 
-        this.myCurrentData.myTime = myTime
+        var hours = myTime.getHours();
+        var minutes = myTime.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        this.myCurrentData.myTime = strTime
       }
       else if (pinType === 'StreetParkingPin'){
         this.isStreetParking = true;
@@ -303,15 +328,52 @@ let globalActions = new Vue({
       this.addPanel = false;
       this.isSignupConfirm = false;
       this.reverseGeoCode = '';
+      this.selected = 'Mild';
     },
 
-    submitParkShare: function(threatLevel){
-      // db.collection('parkingattendant').doc().set({
-      //   CarPresent: 'false',
-      //   LastReportedAt: ,
-      //   Location:,
-      //   ThreatLevel: 
-      // })      
+    submitParkingAttendant: function(){
+      this.getLocation();
+
+      var date = new Date(); 
+      var timestamp = Math.round(date.getTime()/1000);
+      var toSend = new firebase.firestore.Timestamp(timestamp);
+      var stuff;
+      setTimeout(function(){
+        stuff = new firebase.firestore.GeoPoint(this.userLocation.lat, this.userLocation.lng);
+        console.log(stuff)
+        db.collection('parkingattendant').doc().set({
+          CarPresent: 'false',
+          LastReportedAt: toSend,
+          Location: stuff,
+          ThreatLevel: this.selected
+        })        
+      }.bind(this), 10);
+
+    },
+
+    submitParkShare: function(){
+      this.getLocation();
+
+      var date = new Date(); 
+      var timestamp = Math.round(date.getTime()/1000);
+      var toSendEarly = new firebase.firestore.Timestamp(timestamp);
+      
+      var endTimeStamp = (parseFloat(this.selected) * 60.0 * 1000.0) + timestamp
+      var toSendEnd = new firebase.firestore.Timestamp(endTimeStamp);
+      var stuff;
+
+      setTimeout(function(){
+        stuff = new firebase.firestore.GeoPoint(this.userLocation.lat, this.userLocation.lng);
+        console.log(stuff)
+        db.collection('parkshare').doc().set({
+          Cost: this.fieldOne,
+          Description: this.fieldTwo,
+          EndTime: toSendEnd,
+          Location: stuff,
+          Occupied: false,
+          StartTime: toSendEarly,
+        })        
+      }.bind(this), 10);
     }
   },
   

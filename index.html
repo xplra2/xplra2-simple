@@ -44,7 +44,7 @@
                 <div class="card garage-card-border">
                   <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
                     <p class="card-header-title has-text-centered garage fs-lg pb0 level-item">
-                      {{reverseGeoCode}} Parking
+                      {{reverseGeoCode}} Garage
                     </p>
                   </header>
                   <div class="card-content fs-med pt2">
@@ -89,14 +89,15 @@
               <div class="card street-card-border">
                   <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
                     <p class="card-header-title has-text-centered dark-red fs-lg pb0 level-item">
-                      {{reverseGeoCode}}
+                      {{reverseGeoCode}} Spot
                     </p>
                   </header>
                   <div class="card-content fs-med pt2">
-                    <p class="has-text-centered pb0"> Cost: ${{myCurrentData.Cost}} </p>
-                    <p class="has-text-centered pt2 pb0"> {{myCurrentData.maxDuration}}</p>
+                    <p class="has-text-centered pb0"> Cost: ${{myCurrentData.Cost}} / {{myCurrentData.CostType}} </p>
+                    <p class="has-text-centered pt2 pb0"> {{myCurrentData.Type}}</p>
+                    <!-- <p class="has-text-centered pt2 pb0"> {{myCurrentData.maxDuration}}</p> -->
                     <p class="has-text-centered pt2 pb0 fs-underline"> Description</p>
-                    <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.Description }}</p>
+                    <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.description }}</p>
                     <div class="level is-mobile mb0 pt2">
                       <div class="level-item">
                           <a v-on:click="arrivedAt" class="button is-rounded is-medium get-direction-button">
@@ -109,8 +110,8 @@
             </div>
             <div v-if="isConstruction" class="section">
                 <div class="card construction-card-border">
-                    <header class="card-header is-centered no-border-shadow pb0">
-                      <p class="card-header-title has-text-centered construction fs-lg pb0">
+                    <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                      <p class="card-header-title level-item has-text-centered construction fs-lg pb0">
                         {{reverseGeoCode}} Construction
                       </p>
                     </header>
@@ -147,7 +148,7 @@
                   </header>
                   <div class="card-content fs-med pt2">
                     <p class="has-text-centered pb0"> Threat Level: {{myCurrentData.ThreatLevel}}</p>
-                    <p class="has-text-centered pt2 pb0"> {{reverseGeoCode}} </p>
+                    <p class="has-text-centered pt2 pb0"> {{reverseGeoCode}} Street</p>
                     <p class="has-text-centered pt2 pb0 fs-underline"> Last Reported At: </p>
                     <p class="has-text-centered pt1 pb0 fs-sm"> Watch out, he's a lumbersexual flexatarian</p>
                     <div class="columns is-mobile pt2">
@@ -350,7 +351,7 @@
                     <div class="card-content fs-med pt2">
                       <div class="is-centered has-text-centered mt2 mb1">
                         <div class="select fs-sm">
-                          <select>
+                          <select v-model='selected'>
                             <option> Threat Level </option>
                             <option>Mild</option>
                             <option>Angry</option>
@@ -372,7 +373,7 @@
                           </div>
                           <div class="column level is-mobile p0">
                             <div  class="level-item">
-                              <a class="button is-rounded is-medium get-direction-button ">
+                              <a v-on:click='submitParkingAttendant()' class="button is-rounded is-medium get-direction-button ">
                                 <div class="pine-green fw-bold fs-med">Submit</div>
                               </a>
                             </div>
@@ -390,25 +391,25 @@
                   </header>
                   <div class="card-content fs-med pt2">
                     <div class="input-field-underline">
-                      <input placeholder="Cost (format: 1.25)" type="text" class="full-width input is-static fs-sm"> 
+                      <input v-model='fieldOne' placeholder="Cost (format: 1.25)" type="text" class="full-width input is-static fs-sm"> 
                     </div>
                     <div class="is-centered has-text-centered mt2 mb1">
                       <div class="select fs-sm">
-                        <select>
+                        <select v-model='selected'>
                           <option> Time Limit </option>
-                          <option>30 min</option>
-                          <option>1 hr</option>
-                          <option>1 hr 30 min</option>
-                          <option>2 hr</option>
-                          <option>2 hr 30 min</option>
-                          <option>3 hr</option>
-                          <option>3 hr 30 min</option>
-                          <option>4 hr</option>
+                          <option value='30'>30 min</option>
+                          <option value='60'>1 hr</option>
+                          <option value='90'>1 hr 30 min</option>
+                          <option value='120'>2 hr</option>
+                          <option value='150'>2 hr 30 min</option>
+                          <option value='180'>3 hr</option>
+                          <option value='210'>3 hr 30 min</option>
+                          <option value='240'>4 hr</option>
                         </select>
                       </div>
                     </div>
                     <div class="input-field-underline">
-                      <input placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
+                      <input v-model='fieldTwo' placeholder="Description (Optional)" type="text" class="full-width input is-static fs-sm"> 
                     </div>
                       <div class="columns is-mobile pt2">
                         <div class="column level is-mobile mb0 p0">
@@ -420,7 +421,7 @@
                         </div>
                         <div class="column level is-mobile p0">
                           <div  class="level-item">
-                            <a class="button is-rounded is-medium get-direction-button ">
+                            <a v-on:click='submitParkShare()' class="button is-rounded is-medium get-direction-button ">
                               <div class="pine-green fw-bold fs-med">Submit</div>
                             </a>
                           </div>
