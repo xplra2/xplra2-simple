@@ -126,8 +126,16 @@ let globalActions = new Vue({
     isParkShareAdd: false,
     isStreetParking: false,
     isStreetParkingAdd: false,
+    isSignup: false,
+    isArrivedAt: false,
+    comingFrom:  {},
+    timePaidFor: '',
     reverseGeoCode: '', // This is the street address in clean text
     myCurrentData: {},
+    signUpData: {},
+    isSignupConfirm: false,
+    isSignedIn: false,
+    userData: {},
     settingsPanel: false,
     addPanel: false,
   },
@@ -189,9 +197,30 @@ let globalActions = new Vue({
       }
     },
 
+    submitSignUp: function() {
+      //this.signUpData Contains stuff we need
+      db.collection('users').doc(this.signUpData.phone_number).set({
+        FirstName: this.signUpData.first_name,
+        LastName: this.signUpData.last_name,
+        PhoneNumber: this.signUpData.phone_number,
+        email: this.signUpData.email,
+        password: this.signUpData.password,
+      });
+      this.isSignedIn = true;
+      this.userData = this.signUpData;
+      this.signUpData = {};
+      this.deselectCards();
+      this.isSignupConfirm = true;
+    },
+
     openSettings: function(){
       this.deselectCards();
       this.settingsPanel = true;
+    },
+
+    openSignup: function(){
+      this.deselectCards();
+      this.isSignup = true;
     },
 
     openAddPanel: function(){
@@ -221,6 +250,40 @@ let globalActions = new Vue({
       this.isConstructionAdd = true;
     },
 
+    arrivedAt: function(){
+      this.comingFrom =  this.myCurrentData
+      console.log(this.comingFrom)
+      this.deselectCards();
+      this.isArrivedAt = true;
+    },
+
+    submitArrivedAt: function(){
+      var minutes = this.timePaidFor.split(' ')[0]
+    //   db.collection("construction").get().then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //         createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, "[" + doc.data().Type + "] " + doc.data().Notes, 'ConstructionPin', doc.data());
+    //     });
+    // });
+      db.collection("streetpark").doc(this.comingFrom.IDS[0]).get.then(function(doc) {
+        if (doc.exists) {
+          console.log("Document data:", doc.data());
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+      }
+    }).catch(function(error) {
+      console.log("Error getting document:", error);
+      });
+      console.log(streetPark.UserID)
+      console.log(this.comingFrom.IDS[0])
+      console.log(this.userData)
+      // db.collection(this.comingFrom.IDS[0]).doc().set({
+      //   Expired: false,
+      //   TimeDuration: minutes,
+      //   PhoneNumber: this.userData.PhoneNumber
+      // }) 
+    },
+
     deselectCards: function(){
       // removes cards from display
       this.isGarage = false;
@@ -232,10 +295,13 @@ let globalActions = new Vue({
       this.isStreetParking = false;
       this.isStreetParkingAdd = false;
       this.isParkShare = false;
+      this.isArrivedAt = false;
       this.isParkShareAdd = false;
       this.myCurrentData = null;
       this.settingsPanel = false;
+      this.isSignup = false;
       this.addPanel = false;
+      this.isSignupConfirm = false;
       this.reverseGeoCode = '';
     },
 

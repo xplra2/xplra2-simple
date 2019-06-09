@@ -99,7 +99,7 @@
                     <p class="has-text-centered pt1 pb0 fs-sm"> {{ myCurrentData.Description }}</p>
                     <div class="level is-mobile mb0 pt2">
                       <div class="level-item">
-                          <a class="button is-rounded is-medium get-direction-button">
+                          <a v-on:click="arrivedAt" class="button is-rounded is-medium get-direction-button">
                           <div class="pine-green fs-lg fw-bold">Get Directions Here</div>
                           </a>
                       </div>
@@ -168,6 +168,39 @@
                     </div>
                   </div>
                 </div>          
+            </div>
+            <div v-if="isArrivedAt" class="section">
+                <div class="card sign-up-confirm-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered confirm-blue fs-underline fs-lg pb0 level-item">
+                      Arrived at Spot
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="is-centered has-text-centered">
+                      <div class="select fs-sm">
+                        <select v-model="timePaidFor">
+                          <option>Minutes Paid For </option>
+                          <option>30</option>
+                          <option>60 (1hr)</option>
+                          <option>90 (1.5hr)</option>
+                          <option>120 (2hr)</option>
+                          <option>150 (2.5hr)</option>
+                          <option>180 (3hr)</option>
+                          <option>210 (3.5hr)</option>
+                          <option>240 (4hr)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="level is-mobile mb0 pt2">
+                      <div class="level-item">
+                          <a v-on:click="submitArrivedAt" class="button is-rounded is-medium get-direction-button">
+                          <div class="pine-green fs-med">Submit</div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div v-if="settingsPanel" class="section">
               <div  class="card settings-card-border">
@@ -254,7 +287,7 @@
                     </div>
                     <div class="level is-mobile mb0 pt2">
                       <div class="level-item">
-                          <a class="button is-rounded is-medium sign-up-button">
+                          <a v-on:click="openSignup" class="button is-rounded is-medium sign-up-button">
                           <div class="$medium-grey fs-med">Sign up</div>
                           </a>
                       </div>
@@ -262,6 +295,51 @@
                   </div>
               </div>
             </div>
+            <div v-if="isSignup" class="section">
+                <div class="card settings-card-border">
+                  <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                    <p class="card-header-title has-text-centered black fs-underline fs-lg pb0 level-item">
+                      Sign Up
+                    </p>
+                  </header>
+                  <div class="card-content fs-med pt2">
+                    <div class="input-field-underline">
+                      <input v-model="signUpData.first_name" placeholder="First Name" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="input-field-underline">
+                      <input v-model="signUpData.last_name" placeholder="Last Name" type="text" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="input-field-underline">
+                      <input v-model="signUpData.email" placeholder="Email" type="email" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="input-field-underline">
+                      <input v-model="signUpData.phone_number" placeholder="Phone Number" type="tel"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="input-field-underline">
+                      <input v-model="signUpData.password" placeholder="Password" type="password" class="full-width input is-static fs-sm"> 
+                    </div>
+                    <div class="level is-mobile mb0 pt2">
+                      <div class="level-item">
+                          <a v-on:click="submitSignUp" class="button is-rounded is-medium sign-up-button">
+                          <div class="$medium-grey fs-med">Sign up</div>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-if="isSignupConfirm" class="section">
+                  <div class="card sign-up-confirm-border">
+                    <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
+                      <p class="card-header-title has-text-centered confirm-blue fs-lg pb0 level-item">
+                        Sign up Confirmed!
+                      </p>
+                    </header>
+                    <div class="card-content fs-med pt2">
+                      <p class="black has-text-centered"> Thank you for your help in keeping XplrA2 great! </p>
+                    </div>
+                  </div>
+                </div>
             <div v-if="isParkingAttendantAdd" class="section">
                 <div class="card attendent-card-border">
                     <header class="card-header is-centered no-border-shadow pb0 level is-mobile mb0">
