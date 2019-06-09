@@ -138,6 +138,7 @@ let globalActions = new Vue({
     isArrivedAt: false,
     comingFrom:  {},
     timePaidFor: '',
+    user_id: '',
     reverseGeoCode: '', // This is the street address in clean text
     myCurrentData: {},
     signUpData: {},
@@ -289,25 +290,33 @@ let globalActions = new Vue({
     //         createPin({lat: doc.data().Location.latitude, lng: doc.data().Location.longitude}, map, "[" + doc.data().Type + "] " + doc.data().Notes, 'ConstructionPin', doc.data());
     //     });
     // });
-      db.collection("streetpark").doc(this.comingFrom.IDS[0]).get.then(function(doc) {
-        if (doc.exists) {
-          console.log("Document data:", doc.data());
-      } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-      }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
-      });
-      console.log(streetPark.UserID)
+      db.collection("streetpark").doc(this.comingFrom.IDS[0]).get().then(function(doc) {
+        const streetPark = doc.data();
+        console.log(streetPark.UserID);
+        db.collection("streetpark").doc("first").set({
+          PhoneNumber: "+1" + '9085140960',
+          Expired: false,
+          Number: 1234,
+        })
+        db.collection("streetpark").doc("first").set({
+          PhoneNumber: "+1" + '9085140960',
+          Expired: true,
+          Number: 1234,
+        })
+      }).catch(function(error) {
+        console.log("Error getting document:", error);
+        });
       console.log(this.comingFrom.IDS[0])
       console.log(this.userData)
+      this.deselectCards();
+      // setTimeout(this.runTwilio(), 30000)
       // db.collection(this.comingFrom.IDS[0]).doc().set({
       //   Expired: false,
       //   TimeDuration: minutes,
       //   PhoneNumber: this.userData.PhoneNumber
       // }) 
     },
+
 
     deselectCards: function(){
       // removes cards from display
